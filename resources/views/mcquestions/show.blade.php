@@ -1,0 +1,23 @@
+@extends('layouts.subject-layout')
+
+@section('content')
+    <div class="container">
+        <h1 class="mt-5">MCQuestion Details</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Question</h5>
+                <img src="{{ asset('storage/' . $mcquestion->QImage) }}" alt="Question Image" width="200">
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Option 1: {{ $mcquestion->Option1 }}</li>
+                <li class="list-group-item">Option 2: {{ $mcquestion->Option2 }}</li>
+                <li class="list-group-item">Option 3: {{ $mcquestion->Option3 }}</li>
+                <li class="list-group-item">Option 4: {{ $mcquestion->Option4 }}</li>
+                <li class="list-group-item">Answer: {{ $mcquestion->Answer }}</li>
+            </ul>
+        </div>
+
+        <a href="{{ route('mcquestions.index') }}" class="btn btn-primary mt-3">Back to MCQuestion List</a>
+    </div>
+@endsection

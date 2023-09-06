@@ -15,6 +15,14 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('MCQ Self-Evaluation') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Revision Questions') }}
+                    </x-nav-link>
                     
                     
                 </div>
@@ -67,17 +75,6 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-    
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
