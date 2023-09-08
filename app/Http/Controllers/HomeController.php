@@ -17,7 +17,7 @@ class HomeController extends Controller
             $userRole = $user->UserRole; // Note: Using camelCase
 
             if ($userRole == 'user') {
-                return view('dashboard');
+                return view('dashboard.dashboard');
             } elseif ($userRole == 'admin') {
                 return view('admin.adminhome');
             } else {
