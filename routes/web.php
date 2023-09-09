@@ -6,6 +6,7 @@ use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\MCQuestionController;
+use App\Http\Controllers\UserModuleController;
 use App\Http\Controllers\RevisionQuestionController;
 
 
@@ -62,6 +63,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 });
+
+Route::get('/revisionquestions', [UserModuleController::class, 'index'])->name('usermodule.revisionquestions');
+Route::get('/get-chapters/{subjectId}', [UserModuleController::class, 'getChapters'])->name('get-chapters');
+
+
 
 
 

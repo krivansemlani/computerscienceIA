@@ -28,14 +28,14 @@
                         <td class="text-left">{{ $revisionQuestion->id }}</td>
                         <td class="text-left">
                             @if (!empty($revisionQuestion->QImage))
-                                <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" class="max-w-sm">
+                                <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" width="100">
                             @else
                                 N/A
                             @endif
                         </td>
                         <td class="text-left">
                             @if (!empty($revisionQuestion->AImage))
-                                <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" class="max-w-sm">
+                                <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" width="100">
                             @else
                                 N/A
                             @endif

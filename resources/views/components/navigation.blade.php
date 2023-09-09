@@ -19,7 +19,7 @@
                         {{ __('MCQ Self Evaluation Question') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link :href="route('usermodule.revisionquestions')" :active="request()->routeIs('usermodule.revisionquestions')">
                         {{ __('Revision Questions') }}
                     </x-nav-link>
 
