@@ -39,31 +39,47 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        Question Panel
+                        Image and Additional Panel
                     </div>
-                    <div class="card-body">
+                    <div class="container mt-4">
                         <div class="question-box">
                             @foreach ($revisionQuestions as $question)
-                                <strong>Question ID:</strong> <span id="question-id">{{ $question->id }}</span>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input toggle" id="toggle-{{ $question->id }}">
-                                    <label class="form-check-label" for="toggle-{{ $question->id }}">Toggle Question/Answer</label>
-                                </div>
-                                <div class="image-box" style="border: 1px solid #ddd; padding: 10px; margin-top: 10px; background-color: #e6f7ff; text-align: center;">
-                                    @if ($question->QImage)
-                                        <img src="{{ asset('storage/' . $question->QImage) }}" alt="Question Image" class="question-image question-{{ $question->id }}" style="max-width: 75%; margin: 0 auto;">
-                                    @else
-                                        <p>No question image available</p>
-                                    @endif
-                                    @if ($question->AImage)
-                                        <img src="{{ asset('storage/' . $question->AImage) }}" alt="Answer Image" class="answer-image answer-{{ $question->id }}" style="display: none; max-width: 75%; margin: 0 auto;">
-                                    @else
-                                        <p>No answer image available</p>
-                                    @endif
+                                <div class="question-container">
+                                    <div class="image-and-additional-container" style="display: flex;">
+                                        <div class="image-container" style="border: 1px solid #ddd; padding: 10px; margin-top: 10px; max-height: 500px; overflow-y: auto; flex: 1;">
+                                            @if ($question->QImage)
+                                                <div class="image-box" style="max-width: 100%; margin: 0; flex-shrink: 0;">
+                                                    <img src="{{ asset('storage/' . $question->QImage) }}" alt="Question Image" class="question-image question-{{ $question->id }}" style="max-width: 100%;">
+                                                </div>
+                                            @else
+                                                <p>No question image available</p>
+                                            @endif
+                                    
+                                            @if ($question->AImage)
+                                                <div class="image-box" style="max-width: 100%; margin: 0; flex-shrink: 0;">
+                                                    <img src="{{ asset('storage/' . $question->AImage) }}" alt="Answer Image" class="answer-image answer-{{ $question->id }}" style="display: none; max-width: 100%;">
+                                                </div>
+                                            @else
+                                                <p>No answer image available</p>
+                                            @endif
+                                        </div>
+                                    
+                                        <!-- Additional Container on the right -->
+<div class="additional-container" style="border: 1px solid #ddd; padding: 10px; margin-top: 10px; max-height: 500px; overflow-y: auto; flex: 1;">
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input toggle" id="toggle-{{ $question->id }}">
+        <label class="form-check-label" for="toggle-{{ $question->id }}">Toggle Question/Answer</label>
+    </div>
+    <div id="sketchpad-container"></div>
+</div>
+<script type="text/javascript" src="bower_components/sketchpad/scripts/sketchpad.js"></script>
+
+
+                                    </div>
+                                    
                                 </div>
                             @endforeach
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -71,7 +87,6 @@
     </div>
 </x-dashboard-layout>
 
-<!-- Updated JavaScript to toggle question and answer images -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Function to update chapters based on the selected subject
@@ -119,4 +134,14 @@
             $('.answer-' + questionId).hide();
         }
     });
+</script>
+<script>
+    // Initialize Sketchpad
+    @foreach ($revisionQuestions as $question)
+                    var sketchpad_{{ $question->id }} = new Sketchpad({
+                        element: 'sketchpad-container-{{ $question->id }}',
+                        width: 400,
+                        height: 300,
+                    });
+                @endforeach
 </script>

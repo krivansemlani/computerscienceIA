@@ -67,6 +67,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::get('/revisionquestions', [UserModuleController::class, 'index'])->name('usermodule.revisionquestions');
 Route::get('/get-chapters/{subjectId}', [UserModuleController::class, 'getChapters'])->name('get-chapters');
 
+// MCQ Self-Evaluation Module Routes
+Route::get('/mcq-evaluation', [UserModuleController::class, 'mcqEvaluationPage'])->name('usermodule.mcqEvaluationPage');
+Route::post('/start-evaluation', [UserModuleController::class, 'startEvaluation'])->name('usermodule.startEvaluation');
+Route::post('/submit-evaluation', [UserModuleController::class, 'submitEvaluation'])->name('usermodule.submitEvaluation');
+
+
 
 
 

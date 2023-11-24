@@ -7,7 +7,9 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Question</h5>
-                <img src="{{ asset('storage/' . $mcquestion->QImage) }}" alt="Question Image" width="200">
+                <div class="scrolling-container" style="max-height: 500px; overflow-y: auto;">
+                    <img src="{{ asset('storage/' . $mcquestion->QImage) }}" alt="Question Image" width="750">
+                </div>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Option 1: {{ $mcquestion->Option1 }}</li>

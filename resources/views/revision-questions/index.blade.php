@@ -11,6 +11,8 @@
                 <div class="font-medium text-green-600">{{ session('success') }}</div>
             </div>
         @endif
+        <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
+
 
         <table class="table">
             <thead>

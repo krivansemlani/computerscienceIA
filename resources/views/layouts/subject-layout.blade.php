@@ -7,11 +7,14 @@
     <title>Subject Management</title>
 
     <!-- Styles -->
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         <!-- Navigation (You can include your navigation here if needed) -->
+       
+
 
         <main class="py-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

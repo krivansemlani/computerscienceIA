@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RevisionQuestion;
 use App\Models\Chapter;
+use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Models\RevisionQuestion;
 
 class RevisionQuestionController extends Controller
 {
@@ -16,13 +17,17 @@ class RevisionQuestionController extends Controller
     }
 
     public function create()
-    {
-        // Retrieve chapters from the database
-        $chapters = Chapter::all();
+{
+    // Retrieve subjects from the database
+    $subjects = Subject::all();
 
-        // Load the 'revision-questions.create' view and pass the chapters data
-        return view('revision-questions.create', compact('chapters'));
-    }
+    // Retrieve chapters from the database
+    $chapters = Chapter::all();
+
+    // Load the 'revision-questions.create' view and pass the subjects and chapters data
+    return view('revision-questions.create', compact('subjects', 'chapters'));
+}
+
 
     public function store(Request $request)
     {

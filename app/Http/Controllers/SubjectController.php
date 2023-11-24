@@ -66,6 +66,9 @@ class SubjectController extends Controller
         $subject->chapters->each(function ($chapter) {
             $chapter->mcquestions()->delete();
         });
+        $subject->chapters->each(function ($chapter) {
+            $chapter->qrqquestions()->delete();
+        });
     
         // Delete associated chapters
         $subject->chapters()->delete();

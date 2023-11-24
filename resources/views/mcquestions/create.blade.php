@@ -47,18 +47,24 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="subject">Subject</label>
+                <select class="form-control" id="subject" name="subject" required>
+                    @foreach($subjects as $subject)
+                        <option value="{{ $subject->id }}">{{ $subject->SName }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="chapter_id">Chapter</label>
                 <select class="form-control" id="chapter_id" name="chapter_id" required>
-                    @foreach($chapters as $chapter)
-                        <option value="{{ $chapter->id }}">{{ $chapter->CName }}</option>
-                    @endforeach
+                    <!-- Chapters will be dynamically populated -->
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Create MCQuestion</button>
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         // Image preview function
@@ -74,6 +80,38 @@
 
         $('#QImage').change(function () {
             readURL(this);
+        });
+
+        // Function to update chapters based on the selected subject
+        function updateChapters(subjectId) {
+            $.ajax({
+                url: '/get-chapters/' + subjectId,
+                method: 'GET',
+                success: function(data) {
+                    // Update the chapters dropdown with the fetched chapters
+                    $('#chapter_id').empty();
+                    $('#chapter_id').append($('<option>', {
+                        value: '',
+                        text: 'Select a Chapter'
+                    }));
+                    $.each(data, function(key, value) {
+                        $('#chapter_id').append($('<option>', {
+                            value: key,
+                            text: value
+                        }));
+                    });
+                }
+            });
+        }
+
+        // Initialize chapters based on the selected subject
+        var initialSubjectId = $('#subject').val();
+        updateChapters(initialSubjectId);
+
+        // When the subject dropdown changes, update the chapters
+        $('#subject').change(function() {
+            var subjectId = $(this).val();
+            updateChapters(subjectId);
         });
     </script>
 @endsection

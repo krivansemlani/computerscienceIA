@@ -12,9 +12,22 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('subjects.index')" :active="request()->routeIs('subjects.index')">
+                        {{ __('Manage Subjects') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('chapters.index')" :active="request()->routeIs('chapters.index')">
+                        {{ __('Manage Chapters') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('revision-questions.index')" :active="request()->routeIs('revision-questions.index')">
+                        {{ __('Manage Revision Questions') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('mcquestions.index')" :active="request()->routeIs('mcquestions.index')">
+                        {{ __('Manage Self-Evaluation MCQ Questions') }}
+                    </x-nav-link>
+
                     
                     
                 </div>

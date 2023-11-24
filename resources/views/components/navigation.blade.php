@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link :href="route('usermodule.mcqEvaluationPage')" :active="request()->routeIs('usermodule.mcqEvaluationPage')">
                         {{ __('MCQ Self Evaluation Question') }}
                     </x-nav-link>
 

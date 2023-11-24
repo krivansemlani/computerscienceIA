@@ -10,11 +10,12 @@
                 {{ session('success') }}
             </div>
         @endif
+        <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Chapter Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Actions</th>

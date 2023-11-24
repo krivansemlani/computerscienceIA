@@ -6,36 +6,40 @@
 
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">ID</h5>
+                <h3 class="card-title">ID</h3>
                 <p class="card-text">{{ $revisionQuestion->id }}</p>
             </div>
         </div>
 
         <div class="card mt-3">
             <div class="card-body">
-                <h5 class="card-title">Question Image</h5>
-                @if (!empty($revisionQuestion->QImage))
-                    <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" class="max-w-sm">
-                @else
-                    <p class="card-text">N/A</p>
-                @endif
+                <h3 class="card-title">Question Image</h3>
+                <div class="scrolling-container" style="max-height: 750px; overflow-y: auto;">
+                    @if (!empty($revisionQuestion->QImage))
+                        <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" style="max-width: 80%;">
+                    @else
+                        <p class="card-text">N/A</p>
+                    @endif
+                </div>
             </div>
         </div>
 
         <div class="card mt-3">
             <div class="card-body">
-                <h5 class="card-title">Answer Image</h5>
-                @if (!empty($revisionQuestion->AImage))
-                    <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" class="max-w-sm">
-                @else
-                    <p class="card-text">N/A</p>
-                @endif
+                <h3 class="card-title">Answer Image</h3>
+                <div class="scrolling-container" style="max-height: 750px; overflow-y: auto;">
+                    @if (!empty($revisionQuestion->AImage))
+                        <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" style="max-width: 80%;">
+                    @else
+                        <p class="card-text">N/A</p>
+                    @endif
+                </div>
             </div>
         </div>
 
         <div class="card mt-3">
             <div class="card-body">
-                <h5 class="card-title">Chapter</h5>
+                <h3 class="card-title">Chapter</h3>
                 <p class="card-text">{{ $revisionQuestion->chapter->CName }}</p>
             </div>
         </div>

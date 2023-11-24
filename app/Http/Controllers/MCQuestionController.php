@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Chapter;
+use App\Models\Subject;
 use App\Models\MCQuestion;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
@@ -19,12 +20,15 @@ class MCQuestionController extends Controller
     }
 
     public function create()
+    
 {
+    $subjects = Subject::all();
+
     // Retrieve chapters from the database
     $chapters = Chapter::all();
 
     // Load the 'revision-questions.create' view and pass the chapters data
-    return view('mcquestions.create', compact('chapters'));
+    return view('mcquestions.create', compact('chapters','subjects'));
 }
 
 

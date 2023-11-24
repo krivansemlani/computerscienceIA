@@ -10,6 +10,7 @@
                 {{ session('success') }}
             </div>
         @endif
+        <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
         <table class="table">
             <thead>

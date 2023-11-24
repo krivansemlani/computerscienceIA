@@ -26,18 +26,28 @@
                 <input type="file" class="form-control" id="AImage" name="AImage" accept="image/*" required>
                 <img id="aImagePreview" src="#" alt="Answer Image" style="display: none; max-width: 100%; height: auto;">
             </div>
+
+            <div class="form-group">
+                <label for="subject_id">Subject</label>
+                <select class="form-control" id="subject_id" name="subject_id" required>
+                    @foreach($subjects as $subject)
+                        <option value="{{ $subject->id }}">{{ $subject->SName }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="chapter_id">Chapter</label>
                 <select class="form-control" id="chapter_id" name="chapter_id" required>
-                    @foreach($chapters as $chapter)
-                        <option value="{{ $chapter->id }}">{{ $chapter->CName }}</option>
-                    @endforeach
+                
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Create Revision Question</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    
     <script>
         // Image preview function
         function readURL(input, previewId) {
@@ -57,5 +67,37 @@
         $('#AImage').change(function () {
             readURL(this, 'aImagePreview');
         });
+
+        // Update chapters based on selected subject
+        $('#subject_id').change(function () {
+            var subjectId = $(this).val();
+            updateChapters(subjectId);
+        });
+
+        // Function to update chapters based on the selected subject using AJAX
+        function updateChapters(subjectId) {
+            $.ajax({
+                url: '/get-chapters/' + subjectId,
+                method: 'GET',
+                success: function(data) {
+                    // Update the chapters dropdown with the fetched chapters
+                    $('#chapter_id').empty();
+                    $('#chapter_id').append($('<option>', {
+                        value: '',
+                        text: 'Select a Chapter'
+                    }));
+                    $.each(data, function(key, value) {
+                        $('#chapter_id').append($('<option>', {
+                            value: key,
+                            text: value
+                        }));
+                    });
+                }
+            });
+        }
+
+        // Initialize chapters based on the selected subject
+        var initialSubjectId = $('#subject_id').val();
+        updateChapters(initialSubjectId);
     </script>
 @endsection
