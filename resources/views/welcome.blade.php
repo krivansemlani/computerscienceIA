@@ -61,7 +61,7 @@
                     const loginBtn = document.getElementById('loginBtn');
                     const registerBtn = document.getElementById('registerBtn');
                     const agreeTermsCheckbox = document.getElementById('agreeTerms');
-            
+    
                     function updateButtonsState() {
                         if (agreeTermsCheckbox.checked) {
                             loginBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -75,20 +75,22 @@
                             registerBtn.addEventListener('click', preventDefaultAction);
                         }
                     }
-            
+    
                     function preventDefaultAction(event) {
                         event.preventDefault();
+                        if (!agreeTermsCheckbox.checked) {
+                            alert("Please accept the Terms and Conditions before proceeding.");
+                        }
                     }
-            
+    
                     // Initial state check
                     updateButtonsState();
-            
+    
                     // Add event listener to the checkbox using both change and input events
                     agreeTermsCheckbox.addEventListener('change', updateButtonsState);
                     agreeTermsCheckbox.addEventListener('input', updateButtonsState);
                 });
             </script>
-            
             
             
             

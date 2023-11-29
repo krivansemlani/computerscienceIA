@@ -39,6 +39,14 @@
 
         <div class="card mt-3">
             <div class="card-body">
+                <h3 class="card-title">Subject</h3>
+                <p class="card-text">{{ $revisionQuestion->chapter->subject->SName }}</p>
+            </div>
+        </div>
+
+
+        <div class="card mt-3">
+            <div class="card-body">
                 <h3 class="card-title">Chapter</h3>
                 <p class="card-text">{{ $revisionQuestion->chapter->CName }}</p>
             </div>

@@ -19,7 +19,11 @@
                     <th scope="col">Question</th>
                     <th scope="col">Options</th>
                     <th scope="col">Answer</th>
+                    <th style="padding-right: 20px;" scope="col">Subject</th>
+                    <th scope="col">Chapter</th>
+
                     <th scope="col">Actions</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +39,10 @@
                                 <li>{{ $mcquestion->Option4 }}</li>
                             </ul>
                         </td>
-                        <td>{{ $mcquestion->Answer }}</td>
+                        <td style="padding-right: 20px;">{{ $mcquestion->Answer }}</td>
+                       
+                        <td style="padding-right: 20px;">{{ $mcquestion->chapter->subject->SName }}</td>
+                        <td style="padding-right: 20px;">{{ $mcquestion->chapter->CName }}</td>
                         <td>
                            
                             <a href="{{ route('mcquestions.show', $mcquestion->id) }}" class="btn btn-primary">View</a>

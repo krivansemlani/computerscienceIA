@@ -69,8 +69,10 @@ class RevisionQuestionController extends Controller
     public function edit(RevisionQuestion $revisionQuestion)
     {
         // Retrieve a list of all chapters to populate the dropdown
+        $subjects = Subject::all();
+
         $chapters = Chapter::all();
-        return view('revision-questions.edit', compact('revisionQuestion', 'chapters'));
+        return view('revision-questions.edit', compact('revisionQuestion', 'subjects','chapters'));
     }
 
     public function update(Request $request, RevisionQuestion $revisionQuestion)

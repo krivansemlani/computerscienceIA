@@ -8,6 +8,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\MCQuestionController;
 use App\Http\Controllers\UserModuleController;
 use App\Http\Controllers\RevisionQuestionController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -72,6 +73,7 @@ Route::get('/mcq-evaluation', [UserModuleController::class, 'mcqEvaluationPage']
 Route::post('/start-evaluation', [UserModuleController::class, 'startEvaluation'])->name('usermodule.startEvaluation');
 Route::post('/submit-evaluation', [UserModuleController::class, 'submitEvaluation'])->name('usermodule.submitEvaluation');
 
+Route::get('/get-counts', [DashboardController::class, 'getCounts']);
 
 
 

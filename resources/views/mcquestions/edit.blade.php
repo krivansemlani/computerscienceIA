@@ -1,5 +1,6 @@
 @extends('layouts.subject-layout')
 
+
 @section('content')
     <div class="container">
         <h1 class="mt-5">Edit MCQuestion</h1>
@@ -53,12 +54,34 @@
                     <option value="Option4" {{ $mcquestion->Answer === 'Option4' ? 'selected' : '' }}>Option 4</option>
                 </select>
             </div>
-
+{{-- 
             <div class="form-group">
                 <label for="chapter_id">Chapter</label>
                 <select class="form-control" id="chapter_id" name="chapter_id" required>
                     @foreach($chapters as $chapter)
                         <option value="{{ $chapter->id }}" {{ $mcquestion->chapter_id === $chapter->id ? 'selected' : '' }}>{{ $chapter->CName }}</option>
+                    @endforeach
+                </select>
+            </div> --}}
+
+            <div class="form-group">
+                <label for="subject_id">Subject</label>
+                <select class="form-control" id="subject_id" name="subject_id" required>
+                    @foreach($subjects as $subject)
+                        <option value="{{ $subject->id }}" {{ $subject->id == $mcquestion->chapter->subject->id ? 'selected' : '' }}>
+                            {{ $subject->SName }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="chapter_id">Chapter</label>
+                <select class="form-control" id="chapter_id" name="chapter_id" required>
+                    @foreach($chapters as $chapter)
+                        <option value="{{ $chapter->id }}" {{ $chapter->id == $mcquestion->chapter->id ? 'selected' : '' }}>
+                            {{ $chapter->CName }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -86,5 +109,40 @@
         window.addEventListener('load', function () {
             previewImage();
         });
+
+         // Update chapters based on selected subject
+         $('#subject_id').change(function () {
+            var subjectId = $(this).val();
+            updateChapters(subjectId);
+        });
+
+        // Function to update chapters based on the selected subject using AJAX
+function updateChapters(subjectId) {
+    $.ajax({
+        url: '/get-chapters/' + subjectId,
+        method: 'GET',
+        success: function(data) {
+            // Update the chapters dropdown with the fetched chapters
+            $('#chapter_id').empty();
+            $('#chapter_id').append($('<option>', {
+                value: '',
+                text: 'Select a Chapter'
+            }));
+            $.each(data, function(key, value) {
+                // Check if the chapter ID matches the revision question's chapter ID
+                var selected = key == {{ $mcquestion->chapter->id }} ? 'selected' : '';
+                $('#chapter_id').append($('<option>', {
+                    value: key,
+                    text: value,
+                    selected: selected
+                }));
+            });
+        }
+    });
+}
+
+        // Initialize chapters based on the selected subject
+        var initialSubjectId = $('#subject_id').val();
+        updateChapters(initialSubjectId);
     </script>
 @endsection

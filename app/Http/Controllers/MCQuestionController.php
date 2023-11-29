@@ -75,7 +75,8 @@ class MCQuestionController extends Controller
     {
         // Retrieve a list of all chapters to populate the dropdown
         $chapters = Chapter::all();
-        return view('mcquestions.edit', compact('mcquestion', 'chapters'));
+        $subjects = Subject::all();
+        return view('mcquestions.edit', compact('mcquestion', 'chapters','subjects'));
     }
 
     public function update(Request $request, MCQuestion $mcquestion)

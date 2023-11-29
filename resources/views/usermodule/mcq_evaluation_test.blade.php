@@ -47,11 +47,13 @@
                 </div>
             @endforeach
     
-            <div class="mb-4">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
+            <div class="mb-4 flex justify-center">
+                <button type="submit" style="background-color: #3490dc; color: #ffffff; font-weight: bold; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
                     Submit Answers
                 </button>
             </div>
+            
+            
         </form>
     </div>
     

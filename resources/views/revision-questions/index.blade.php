@@ -13,43 +13,44 @@
         @endif
         <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
 
-
         <table class="table">
             <thead>
                 <tr>
-                    <th class="text-left">ID</th>
-                    <th class="text-left">Question Image</th>
-                    <th class="text-left">Answer Image</th>
-                    <th class="text-left">Chapter</th>
-                    <th class="text-left">Actions</th>
+                    <th style="padding-right: 20px;">ID</th>
+                    <th style="padding-right: 20px;">Question Image</th>
+                    <th style="padding-right: 20px;">Answer Image</th>
+                    <th style="padding-right: 20px;">Chapter</th>
+                    <th style="padding-right: 20px;">Subject</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($revisionQuestions as $revisionQuestion)
                     <tr>
-                        <td class="text-left">{{ $revisionQuestion->id }}</td>
-                        <td class="text-left">
+                        <td style="padding-right: 20px;">{{ $revisionQuestion->id }}</td>
+                        <td style="padding-right: 20px;">
                             @if (!empty($revisionQuestion->QImage))
                                 <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" width="100">
                             @else
                                 N/A
                             @endif
                         </td>
-                        <td class="text-left">
+                        <td style="padding-right: 20px;">
                             @if (!empty($revisionQuestion->AImage))
                                 <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" width="100">
                             @else
                                 N/A
                             @endif
                         </td>
-                        <td class="text-left">{{ $revisionQuestion->chapter->CName }}</td>
-                        <td class="text-left">
-                            <a href="{{ route('revision-questions.edit', $revisionQuestion->id) }}" class="btn btn-primary mb-3">Edit</a>
-                            <a href="{{ route('revision-questions.show', $revisionQuestion->id) }}" class="btn btn-primary mb-3">View</a>
+                        <td style="padding-right: 20px;">{{ $revisionQuestion->chapter->CName }}</td>
+                        <td style="padding-right: 20px;">{{ $revisionQuestion->chapter->subject->SName }}</td>
+                        <td>
+                            <a href="{{ route('revision-questions.edit', $revisionQuestion->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('revision-questions.show', $revisionQuestion->id) }}" class="btn btn-primary">View</a>
                             <form action="{{ route('revision-questions.destroy', $revisionQuestion->id) }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-primary mb-3">Delete</button>
+                                <button type="submit" class="btn btn-primary">Delete</button>
                             </form>
                         </td>
                     </tr>
