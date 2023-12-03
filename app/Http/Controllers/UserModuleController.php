@@ -74,24 +74,33 @@ class UserModuleController extends Controller
     public function startEvaluation(Request $request)
     {
         // Retrieve selected subject and chapter from the form
-        $selectedSubject = $request->input('subject_id');
-        $selectedChapter = $request->input('chapter_id');
+$selectedSubject = $request->input('subject_id');
+$selectedChapter = $request->input('chapter_id');
 
-        // Fetch 10 random MCQ questions based on the subject and chapter
-        $selectedQuestions = MCQuestion::inRandomOrder()
-            ->whereHas('chapter', function ($query) use ($selectedSubject, $selectedChapter) {
-                $query->where('subject_id', $selectedSubject)
-                    ->where('id', $selectedChapter);
-            })
-            ->limit(5)
-            ->get();
+// Fetch selected subject and chapter
+$selectedSubjectModel = Subject::find($selectedSubject);
+$selectedChapterModel = Chapter::find($selectedChapter);
 
-        // Store the selected questions in the session
-        Session::put('selectedQuestions', $selectedQuestions);
+// Fetch 10 random MCQ questions based on the subject and chapter
+$selectedQuestions = MCQuestion::inRandomOrder()
+    ->whereHas('chapter', function ($query) use ($selectedSubject, $selectedChapter) {
+        $query->where('subject_id', $selectedSubject)
+            ->where('id', $selectedChapter);
+    })
+    ->limit(5)
+    ->get();
 
-        return view('usermodule.mcq_evaluation_test', [
-            'selectedQuestions' => $selectedQuestions,
-        ]);
+// Store the selected questions, subject, and chapter in the session
+Session::put('selectedQuestions', $selectedQuestions);
+Session::put('selectedSubject', $selectedSubjectModel);
+Session::put('selectedChapter', $selectedChapterModel);
+
+return view('usermodule.mcq_evaluation_test', [
+    'selectedQuestions' => $selectedQuestions,
+    'selectedSubject'   => $selectedSubjectModel,
+    'selectedChapter'   => $selectedChapterModel,
+]);
+
     }
 
     public function submitEvaluation(Request $request)

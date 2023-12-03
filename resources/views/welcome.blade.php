@@ -6,15 +6,14 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+       
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
         <style>
             .important { color: blue; font-weight: bold; }
             .scroll-box {
-                max-height: 200px;
+                max-height: 400px;
                 overflow-y: auto;
                 padding: 10px;
                 border: 1px solid #e5e7eb;
@@ -30,7 +29,7 @@
                     @auth
                         <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
-                        <!-- Add a checkbox to agree to terms and conditions -->
+                        
                         <input type="checkbox" id="agreeTerms" class="mr-2">
                         <label for="agreeTerms" class="font-semibold text-gray-600 dark:text-gray-400">I agree to the <span class="important">Terms and Conditions</span></label>
 
@@ -43,18 +42,56 @@
                 </div>
             @endif
 
-            <!-- Terms and Conditions Section -->
-            <div class="max-w-2xl mx-auto p-6 text-center text-gray-600 dark:text-gray-400">
-                <h1 class="text-2xl font-semibold mb-4">Terms and Conditions</h1>
-                <div class="scroll-box">
-                    <!-- Replace the following with your actual terms and conditions content -->
-                    <p class="leading-relaxed">Your terms and conditions content goes here. Please read carefully before proceeding.</p>
-                    <p class="leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                    <p class="leading-relaxed">By clicking "I agree," you confirm that you have read and accepted these terms and conditions.</p>
-                    <p class="leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-                    <!-- End of terms and conditions content -->
-                </div>
-            </div>
+        
+<div class="max-w-2xl mx-auto p-6 text-justify text-gray-600 dark:text-gray-400">
+    <h1 class="text-2xl font-semibold mb-4">Terms and Conditions</h1>
+    <div class="scroll-box">
+        <p class="leading-relaxed">
+             These terms and conditions govern your use of our services. By accessing or using our platform, you agree to comply with and be bound by these terms.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>1. Acceptance of Terms:</strong> By using our platform, you acknowledge that you have read, understood, and agree to these terms and conditions.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>2. User Eligibility:</strong> You must be at least 18 years old to use our services. If you are under 18, you may only use the services with the consent of a parent or guardian.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>3. Account Registration:</strong> You agree to provide accurate and complete information during the registration process and to update such information to keep it accurate and current.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>4. User Conduct:</strong> You are responsible for your actions on our platform. Do not engage in any unlawful, offensive, or harmful activities. Respect the rights of others.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>5. Privacy Policy:</strong> Our privacy policy outlines how we collect, use, and disclose your personal information. By using our services, you consent to our privacy practices.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>6. Intellectual Property:</strong> All content on our platform is protected by intellectual property laws. You may not use, reproduce, or distribute any content without permission.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>7. Prohibited Activities:</strong> Engaging in activities that violate our terms, including but not limited to hacking, spamming, or distributing malware, is strictly prohibited.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>8. Termination:</strong> We reserve the right to terminate or suspend your account and access to our services if you violate these terms or for any other reason at our discretion.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>9. Limitation of Liability:</strong> We are not liable for any damages or losses arising from your use of our platform. Use our services at your own risk.
+        </p>
+
+        <p class="leading-relaxed">
+            <strong>10. Changes to Terms:</strong> We may update these terms and conditions at any time. It is your responsibility to review them periodically. Continued use of our services constitutes acceptance of any changes.
+        </p>
+    </div>
+</div>
+
 
             <script defer>
                 document.addEventListener('DOMContentLoaded', function () {

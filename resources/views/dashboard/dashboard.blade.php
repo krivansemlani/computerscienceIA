@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
-    <!-- Add your styles and scripts here -->
+    <title>Topical Papers</title>
 
-    <!-- Styles -->
     <style>
-        /* Add your styles here */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f7fafc;
@@ -112,6 +109,10 @@
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         {{ __("You're logged in!") }}
+                        <br />
+                        <br />
+                        <h1 style="font-weight:bold"> Number of Subjects, Chapters and Question offered by our academy:
+                        </h1>
 
                         <div class="dashboard-container">
                             <div class="dashboard-item">
@@ -137,9 +138,9 @@
         </div>
     </x-dashboard-layout>
 
-    <!-- Scripts -->
+
     <script defer>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             function fetchDataAndUpdateNumbers() {
                 const apiUrl = '/get-counts';
 
@@ -171,10 +172,10 @@
                 }, 10000 / 60);
             }
 
-            // Initial fetch and update
+
             fetchDataAndUpdateNumbers();
 
-            // Fetch and update every 5 seconds (adjust as needed)
+
             setInterval(fetchDataAndUpdateNumbers, 10000);
         });
     </script>
