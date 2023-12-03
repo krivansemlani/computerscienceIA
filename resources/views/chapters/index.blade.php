@@ -5,27 +5,27 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Manage Chapters') }}
         </h2>
-        <br/>
+        <br />
         <div class="mb-3">
             <label for="subjectFilter">Filter by Subject:</label>
             <select id="subjectFilter" class="form-select" onchange="applyFilter()">
                 <option value="">All Subjects</option>
-                @foreach($subjects as $subject)
+                @foreach ($subjects as $subject)
                     <option value="{{ $subject->id }}">{{ $subject->SName }}</option>
                 @endforeach
             </select>
         </div>
-        <br/>
+        <br />
         <a href="{{ route('chapters.create') }}" class="btn btn-primary mb-3">Create New Chapter</a>
 
-        @if(session('success'))
+        @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
         <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
-        <br/>
-        <br/>
+        <br />
+        <br />
 
         <table class="table">
             <thead>
@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($chapters as $chapter)
+                @foreach ($chapters as $chapter)
                     <tr class="chapter-row" data-subject-id="{{ $chapter->subject->id }}">
                         <th scope="row">{{ $chapter->id }}</th>
                         <td>{{ $chapter->CName }}</td>
@@ -48,7 +48,9 @@
                             <a href="{{ route('chapters.show', $chapter->id) }}" class="btn btn-primary">View</a>
                             <a href="{{ route('chapters.edit', $chapter->id) }}" class="btn btn-warning">Edit</a>
                             <button class="btn btn-danger" onclick="confirmDelete('{{ $chapter->id }}')">Delete</button>
-                            <form id="deleteForm-{{ $chapter->id }}" action="{{ route('chapters.destroy', $chapter->id) }}" method="POST" style="display: none;">
+                            <form id="deleteForm-{{ $chapter->id }}"
+                                action="{{ route('chapters.destroy', $chapter->id) }}" method="POST"
+                                style="display: none;">
                                 @csrf
                                 @method('DELETE')
                             </form>

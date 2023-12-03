@@ -5,7 +5,7 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Revision Question Details') }}
 
-            
+
         </h2>
 
         <div class="card mt-3">
@@ -14,7 +14,8 @@
 
                 <div class="scrolling-container" style="max-height: 500px; overflow-y: auto; border: 3px solid #000;">
                     @if (!empty($revisionQuestion->QImage))
-                        <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" style="max-width: 80%;">
+                        <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image"
+                            style="max-width: 80%;">
                     @else
                         <p class="card-text">N/A</p>
                     @endif
@@ -28,7 +29,8 @@
 
                 <div class="scrolling-container" style="max-height: 500px; overflow-y: auto; border: 3px solid #000;">
                     @if (!empty($revisionQuestion->AImage))
-                        <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" style="max-width: 80%;">
+                        <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image"
+                            style="max-width: 80%;">
                     @else
                         <p class="card-text">N/A</p>
                     @endif

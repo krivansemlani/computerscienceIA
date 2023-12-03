@@ -5,9 +5,9 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Chapter Details') }}
 
-            
+
         </h2>
-        <br/>
+        <br />
         <table class="table">
             <tbody>
                 <tr>
@@ -24,7 +24,7 @@
                 </tr>
             </tbody>
         </table>
-        <br/>
+        <br />
 
         <a href="{{ route('chapters.index') }}" class="btn btn-primary">Back to Chapters</a>
     </div>
