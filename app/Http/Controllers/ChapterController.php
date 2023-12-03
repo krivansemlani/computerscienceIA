@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Chapter;
-
 use App\Models\Subject;
+
+use App\Rules\MaxWords;
+use Illuminate\Http\Request;
 
 class ChapterController extends Controller
 {
     public function index()
-    {
+    {    $subjects = Subject::all();
         $chapters = Chapter::all();
-        return view('chapters.index', compact('chapters'));
+        return view('chapters.index', compact('chapters','subjects'));
     }
 
     public function create()
@@ -24,7 +25,7 @@ class ChapterController extends Controller
     {
         $request->validate([
             'CName' => 'required|string|max:255',
-            'CDescription' => 'required|string',
+            'CDescription' => [new MaxWords(5)],
             'subject_id' => 'required|exists:subject,id',
         ]);
 
@@ -53,7 +54,7 @@ class ChapterController extends Controller
     {
         $request->validate([
             'CName' => 'required|string|max:255',
-            'CDescription' => 'required|string',
+            'CDescription' => [new MaxWords(5)],
             'subject_id' => 'required|exists:subject,id',
         ]);
 

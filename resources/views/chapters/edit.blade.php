@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Edit Chapter</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Edit Chapter') }}
+        </h2>
+        <br/>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -23,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="CDescription">Description</label>
-                <textarea class="form-control" id="CDescription" name="CDescription" rows="3" required>{{ $chapter->CDescription }}</textarea>
+                <textarea class="form-control" id="CDescription" name="CDescription" rows="3" >{{ $chapter->CDescription }}</textarea>
             </div>
             <div class="form-group">
                 <label for="subject_id">Subject</label>
@@ -33,7 +36,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Update Chapter</button>
+            <button class="btn btn-primary">Update Chapter</button>
         </form>
     </div>
 @endsection

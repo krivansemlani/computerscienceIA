@@ -16,6 +16,7 @@
                 </tr>
             </tbody>
         </table>
+        <br/>
 
         <a href="{{ route('subjects.index') }}" class="btn btn-primary">Back to Subjects</a>
     </div>

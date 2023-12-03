@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mt-5">Manage Subjects</h1>
+    
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Manage Subjects') }}
+        </h2>
+   <br/>
+   
     <a href="{{ route('subjects.create') }}" class="btn btn-primary mb-3">Create New Subject</a>
 
     @if(session('success'))
@@ -12,7 +17,9 @@
     @endif
 
     <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
-
+    <br/>
+    <br/>
+    
     <table class="table">
         <thead>
             <tr>
@@ -31,7 +38,7 @@
                 <td>
                     <a href="{{ route('subjects.show', $subject->id) }}" class="btn btn-primary">View</a>
                     <a href="{{ route('subjects.edit', $subject->id) }}" class="btn btn-warning">Edit</a>
-                    <button type="button" class="btn btn-danger" onclick="confirmDelete('{{ $subject->id }}')">Delete</button>
+                    <button  class="btn btn-danger" onclick="confirmDelete('{{ $subject->id }}')">Delete</button>
                     <form id="deleteForm-{{ $subject->id }}" action="{{ route('subjects.destroy', $subject->id) }}" method="POST" style="display: none;">
                         @csrf
                         @method('DELETE')
@@ -43,17 +50,12 @@
     </table>
 </div>
 
-<style>
-    .table th,
-    .table td {
-        padding: 15px; /* Adjust the padding as needed */
-    }
-</style>
+
 
 <script>
     function confirmDelete(subjectId) {
         if (confirm('Are you sure you want to delete this subject and all its corresponding chapters and questions?')) {
-            // If the user confirms, manually submit the form
+            
             document.getElementById('deleteForm-' + subjectId).submit();
         }
     }

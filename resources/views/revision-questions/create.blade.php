@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Create New Revision Question</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Create Revision Question') }}
+        </h2>
+        <br/>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -43,7 +46,7 @@
                 </select>
             </div>
             
-            <button type="submit" class="btn btn-primary">Create Revision Question</button>
+            <button class="btn btn-primary">Create Revision Question</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

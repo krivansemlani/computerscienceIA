@@ -14,11 +14,12 @@ class MCQuestionController extends Controller
 
     public function index()
     {
-        // Retrieve a list of all MCQuestions
+        // Retrieve a list of all RevisionQuestions
+        $subjects = Subject::all();
+        $chapters = Chapter::all();
         $mcquestions = MCQuestion::all();
-        return view('mcquestions.index', compact('mcquestions'));
+        return view('mcquestions.index', compact('mcquestions','subjects', 'chapters'));
     }
-
     public function create()
     
 {

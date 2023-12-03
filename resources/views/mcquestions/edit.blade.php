@@ -3,7 +3,10 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Edit MCQuestion</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Edit MCQ Details') }}
+        </h2>
+        <br/>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -19,8 +22,10 @@
             @csrf
             @method('PUT')
 
-            <div class="form-group">
-                <label for="QImage">Question Image</label>
+            <label for="QImage">Question Image</label>
+
+            <div class="form-group" class="scrolling-container" style="max-height: 500px; overflow-y: auto; border: 3px solid #000;">
+                
                 <input type="file" class="form-control" id="QImage" name="QImage" accept="image/*" onchange="previewImage()" style="padding: 10px 0;">
                 <img id="image-preview" src="{{ asset('storage/' . $mcquestion->QImage) }}" alt="Question Image" style="max-width: 100%; height: auto;">
             </div>
@@ -54,15 +59,7 @@
                     <option value="Option4" {{ $mcquestion->Answer === 'Option4' ? 'selected' : '' }}>Option 4</option>
                 </select>
             </div>
-{{-- 
-            <div class="form-group">
-                <label for="chapter_id">Chapter</label>
-                <select class="form-control" id="chapter_id" name="chapter_id" required>
-                    @foreach($chapters as $chapter)
-                        <option value="{{ $chapter->id }}" {{ $mcquestion->chapter_id === $chapter->id ? 'selected' : '' }}>{{ $chapter->CName }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
+
 
             <div class="form-group">
                 <label for="subject_id">Subject</label>
@@ -86,7 +83,7 @@
                 </select>
             </div>
 
-            <!-- Add any additional form fields here -->
+        
 
             <button type="submit" class="btn btn-primary">Update MCQuestion</button>
         </form>

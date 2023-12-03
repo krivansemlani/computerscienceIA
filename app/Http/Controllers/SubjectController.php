@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Subject;
+use App\Rules\MaxWords;
+use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
@@ -24,7 +25,7 @@ class SubjectController extends Controller
     {
         $request->validate([
             'SName' => 'required|string|max:255',
-            'SDescription' => 'required|string',
+            'SDescription' => [new MaxWords(5)],
         ]);
 
         Subject::create([
@@ -47,9 +48,10 @@ class SubjectController extends Controller
 
     public function update(Request $request, Subject $subject)
     {
+       
         $request->validate([
             'SName' => 'required|string|max:255',
-            'SDescription' => 'required|string',
+            'SDescription' => [new MaxWords(5)],
         ]);
 
         $subject->update([

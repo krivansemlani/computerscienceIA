@@ -2,15 +2,22 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">MCQuestion Details</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('MCQ Details') }}
 
+            
+        </h2>
+        <br/>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Question</h5>
-                <div class="scrolling-container" style="max-height: 500px; overflow-y: auto;">
+                <h3 class="card-title" style="font-weight: bold;">Question Image</h3>
+               
+                <div class="scrolling-container" style="max-height: 500px; overflow-y: auto;  border: 3px solid #000;">
                     <img src="{{ asset('storage/' . $mcquestion->QImage) }}" alt="Question Image" width="750">
                 </div>
             </div>
+
+            <br/>
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Option 1: {{ $mcquestion->Option1 }}</li>
@@ -23,7 +30,7 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <h3 class="card-title">Subject</h3>
+                <h3 class="card-title" style="font-weight: bold;">Subject</h3>
                 <p class="card-text">{{ $mcquestion->chapter->subject->SName }}</p>
             </div>
         </div>
@@ -31,7 +38,7 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <h3 class="card-title">Chapter</h3>
+                <h3 class="card-title" style="font-weight: bold;">Chapter</h3>
                 <p class="card-text">{{ $mcquestion->chapter->CName }}</p>
             </div>
         </div>

@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Create New Chapter</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Create new chapter') }}
+            
+        </h2>
+        <br/>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -22,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="CDescription">Description</label>
-                <textarea class="form-control" id="CDescription" name="CDescription" rows="3" required></textarea>
+                <textarea class="form-control" id="CDescription" name="CDescription" rows="3" ></textarea>
             </div>
             <div class="form-group">
                 <label for="subject_id">Subject</label>
@@ -32,7 +36,7 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Create Chapter</button>
+            <button class="btn btn-primary">Create Chapter</button>
         </form>
         
     </div>

@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Create New MCQuestion</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Create MCQ') }}
+        </h2>
+        <br/>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -16,8 +19,9 @@
 
         <form action="{{ route('mcquestions.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
-                <label for="QImage">Question Image</label>
+            <label for="QImage">Question Image</label>
+            <div class="form-group" class="scrolling-container" style="max-height: 750px; overflow-y: auto; border: 3px solid #000;">
+                
                 <input type="file" class="form-control" id="QImage" name="QImage" accept="image/*" required>
                 <img id="image-preview" src="#" alt="Question Image" style="display: none; max-width: 100%; height: auto;">
             </div>
@@ -57,10 +61,10 @@
             <div class="form-group">
                 <label for="chapter_id">Chapter</label>
                 <select class="form-control" id="chapter_id" name="chapter_id" required>
-                    <!-- Chapters will be dynamically populated -->
+                
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Create MCQuestion</button>
+            <button  class="btn btn-primary">Create MCQuestion</button>
         </form>
     </div>
 

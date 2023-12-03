@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Chapter Details</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Chapter Details') }}
 
+            
+        </h2>
+        <br/>
         <table class="table">
             <tbody>
                 <tr>
@@ -20,6 +24,7 @@
                 </tr>
             </tbody>
         </table>
+        <br/>
 
         <a href="{{ route('chapters.index') }}" class="btn btn-primary">Back to Chapters</a>
     </div>

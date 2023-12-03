@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Edit Revision Question</h1>
-
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Edit Revision Question') }}
+            
+        </h2>
+<br/>
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -18,14 +21,18 @@
             @csrf
             @method('PUT')
 
-            <div class="form-group">
-                <label for="QImage">Question Image</label>
+            <label for="QImage">Question Image</label>
+
+            <div class="form-group"class="scrolling-container" style="max-height: 750px; overflow-y: auto; border: 3px solid #000;" >
+               
                 <input type="file" class="form-control" id="QImage" name="QImage" accept="image/*" onchange="previewImage('QImage', 'image-preview')" style="padding: 10px 0;">
                 <img id="image-preview" src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" style="max-width: 100%; height: auto;">
             </div>
 
-            <div class="form-group">
-                <label for="AImage">Answer Image</label>
+            <label for="AImage">Answer Image</label>
+
+            <div class="form-group" class="scrolling-container" style="max-height: 750px; overflow-y: auto; border: 3px solid #000;">
+                
                 <input type="file" class="form-control" id="AImage" name="AImage" accept="image/*" onchange="previewImage('AImage', 'aImagePreview')" style="padding: 10px 0;">
                 <img id="aImagePreview" src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" style="max-width: 100%; height: auto;">
             </div>
@@ -54,7 +61,7 @@
 
             <!-- Add any additional form fields here -->
 
-            <button type="submit" class="btn btn-primary">Update Revision Question</button>
+            <button class="btn btn-primary">Update Revision Question</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

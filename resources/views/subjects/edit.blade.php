@@ -1,8 +1,13 @@
 @extends('layouts.subject-layout')
 
 @section('content')
+
     <div class="container">
-        <h1 class="mt-5">Edit Subject</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Edit Subject') }}
+            <br/>
+            <br/>
+        </h2>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -23,9 +28,10 @@
             </div>
             <div class="form-group">
                 <label for="SDescription">Description</label>
-                <textarea class="form-control" id="SDescription" name="SDescription" rows="3" required>{{ $subject->SDescription }}</textarea>
+                <textarea class="form-control" id="SDescription" name="SDescription" rows="3">{{ $subject->SDescription }}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Update Subject</button>
+            <button  class="btn btn-primary">Update Subject</button>
         </form>
     </div>
+
 @endsection

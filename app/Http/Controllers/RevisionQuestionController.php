@@ -12,8 +12,10 @@ class RevisionQuestionController extends Controller
     public function index()
     {
         // Retrieve a list of all RevisionQuestions
+        $subjects = Subject::all();
+        $chapters = Chapter::all();
         $revisionQuestions = RevisionQuestion::all();
-        return view('revision-questions.index', compact('revisionQuestions'));
+        return view('revision-questions.index', compact('revisionQuestions','subjects', 'chapters'));
     }
 
     public function create()

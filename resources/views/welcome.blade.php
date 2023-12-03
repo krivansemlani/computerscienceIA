@@ -83,10 +83,10 @@
                         }
                     }
     
-                    // Initial state check
+                    
                     updateButtonsState();
     
-                    // Add event listener to the checkbox using both change and input events
+                    
                     agreeTermsCheckbox.addEventListener('change', updateButtonsState);
                     agreeTermsCheckbox.addEventListener('input', updateButtonsState);
                 });

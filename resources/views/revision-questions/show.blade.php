@@ -2,19 +2,17 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mt-5">Revision Question Details</h1>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Revision Question Details') }}
 
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">ID</h3>
-                <p class="card-text">{{ $revisionQuestion->id }}</p>
-            </div>
-        </div>
+            
+        </h2>
 
         <div class="card mt-3">
             <div class="card-body">
-                <h3 class="card-title">Question Image</h3>
-                <div class="scrolling-container" style="max-height: 750px; overflow-y: auto;">
+                <h3 class="card-title" style="font-weight: bold;">Question Image</h3>
+
+                <div class="scrolling-container" style="max-height: 500px; overflow-y: auto; border: 3px solid #000;">
                     @if (!empty($revisionQuestion->QImage))
                         <img src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image" style="max-width: 80%;">
                     @else
@@ -26,8 +24,9 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <h3 class="card-title">Answer Image</h3>
-                <div class="scrolling-container" style="max-height: 750px; overflow-y: auto;">
+                <h3 class="card-title" style="font-weight: bold;">Answer Image</h3>
+
+                <div class="scrolling-container" style="max-height: 500px; overflow-y: auto; border: 3px solid #000;">
                     @if (!empty($revisionQuestion->AImage))
                         <img src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image" style="max-width: 80%;">
                     @else
@@ -39,7 +38,8 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <h3 class="card-title">Subject</h3>
+                <h3 class="card-title" style="font-weight: bold;">Subject</h3>
+
                 <p class="card-text">{{ $revisionQuestion->chapter->subject->SName }}</p>
             </div>
         </div>
@@ -47,7 +47,8 @@
 
         <div class="card mt-3">
             <div class="card-body">
-                <h3 class="card-title">Chapter</h3>
+                <h3 class="card-title" style="font-weight: bold;">Chapter</h3>
+
                 <p class="card-text">{{ $revisionQuestion->chapter->CName }}</p>
             </div>
         </div>
