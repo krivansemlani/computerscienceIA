@@ -24,7 +24,7 @@
         }
         .table th,
         .table td {
-            padding: 15px; /* Adjust the padding as needed */
+            padding: 15px; 
         }
     </style>
 </head>
@@ -32,7 +32,6 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         <x-app-layout>
-
             <main class="py-10">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     @yield('content')
@@ -41,7 +40,7 @@
         </x-app-layout>
     </div>
 
-    <!-- Scripts -->
+    
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

@@ -11,14 +11,15 @@ use Illuminate\Http\Request;
 class ChapterController extends Controller
 {
     public function index()
-    {    $subjects = Subject::all();
+    {
+        $subjects = Subject::all();
         $chapters = Chapter::all();
-        return view('chapters.index', compact('chapters','subjects'));
+        return view('chapters.index', compact('chapters', 'subjects'));
     }
 
     public function create()
     {
-        $subjects = Subject::all(); // Fetch all subjects to populate the dropdown
+        $subjects = Subject::all(); 
         return view('chapters.create', compact('subjects'));
     }
     public function store(Request $request)
@@ -44,10 +45,10 @@ class ChapterController extends Controller
     }
 
     public function edit(Chapter $chapter)
-{
-    $subjects = Subject::all(); 
-    return view('chapters.edit', compact('chapter', 'subjects'));
-}
+    {
+        $subjects = Subject::all();
+        return view('chapters.edit', compact('chapter', 'subjects'));
+    }
 
 
     public function update(Request $request, Chapter $chapter)
@@ -68,18 +69,18 @@ class ChapterController extends Controller
     }
 
     public function destroy(Chapter $chapter)
-{
-    // Delete associated MCQuestions
-    $chapter->mcquestions()->delete();
+    {
+       
+        $chapter->mcquestions()->delete();
 
-    // Delete associated QRQQuestions
-    $chapter->qrqquestions()->delete();
+        
+        $chapter->qrqquestions()->delete();
 
-    // Then delete the chapter itself
-    $chapter->delete();
+       
+        $chapter->delete();
 
-    return redirect()->route('chapters.index')->with('success', 'Chapter and associated questions deleted successfully.');
-}
+        return redirect()->route('chapters.index')->with('success', 'Chapter and associated questions deleted successfully.');
+    }
 
 
 }

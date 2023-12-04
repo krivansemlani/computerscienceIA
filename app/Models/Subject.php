@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-    protected $table = 'subject'; // Make sure it matches your table name
+    protected $table = 'subject';
 
     protected $fillable = ['SName', 'SDescription'];
 
-    // Define the relationship: Subject has many chapters
+
     public function chapters()
     {
         return $this->hasMany(Chapter::class);

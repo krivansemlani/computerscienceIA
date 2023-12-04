@@ -11,11 +11,8 @@ class SubjectController extends Controller
     public function index()
     {
         $subjects = Subject::all();
-    
         return view('subjects.index', compact('subjects'));
     }
-    
-
     public function create()
     {
         return view('subjects.create');
@@ -27,13 +24,12 @@ class SubjectController extends Controller
             'SName' => 'required|string|max:255',
             'SDescription' => [new MaxWords(5)],
         ]);
-
         Subject::create([
             'SName' => $request->input('SName'),
             'SDescription' => $request->input('SDescription'),
         ]);
-
-        return redirect()->route('subjects.index')->with('success', 'Subject created successfully.');
+        return redirect()->route('subjects.index')->with('success', 
+        'Subject created successfully.');
     }
 
     public function show(Subject $subject)
@@ -48,38 +44,29 @@ class SubjectController extends Controller
 
     public function update(Request $request, Subject $subject)
     {
-       
         $request->validate([
             'SName' => 'required|string|max:255',
             'SDescription' => [new MaxWords(5)],
         ]);
-
         $subject->update([
             'SName' => $request->input('SName'),
             'SDescription' => $request->input('SDescription'),
         ]);
-
-        return redirect()->route('subjects.index')->with('success', 'Subject updated successfully.');
+        return redirect()->route('subjects.index')->with('success', 'Subject updated 
+        successfully.');
     }
 
     public function destroy(Subject $subject)
     {
-        // Delete associated MCQ questions
         $subject->chapters->each(function ($chapter) {
             $chapter->mcquestions()->delete();
         });
         $subject->chapters->each(function ($chapter) {
             $chapter->qrqquestions()->delete();
         });
-    
-        // Delete associated chapters
         $subject->chapters()->delete();
-    
-        // Delete the subject itself
         $subject->delete();
-    
-        return redirect()->route('subjects.index')->with('success', 'Subject and associated data deleted successfully.');
+        return redirect()->route('subjects.index')->with('success', 'Subject and 
+        associated data deleted successfully.');
     }
-    
-    
 }

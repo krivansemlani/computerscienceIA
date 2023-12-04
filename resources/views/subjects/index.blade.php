@@ -2,24 +2,19 @@
 
 @section('content')
     <div class="container">
-
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Manage Subjects') }}
         </h2>
         <br />
-
         <a href="{{ route('subjects.create') }}" class="btn btn-primary mb-3">Create New Subject</a>
-
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
-
         <a href="{{ route('home') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
         <br />
         <br />
-
         <table class="table">
             <thead>
                 <tr>
@@ -52,8 +47,6 @@
         </table>
     </div>
 
-
-
     <script>
         function confirmDelete(subjectId) {
             if (confirm('Are you sure you want to delete this subject and all its corresponding chapters and questions?')) {
@@ -62,4 +55,5 @@
             }
         }
     </script>
+    
 @endsection

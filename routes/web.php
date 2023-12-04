@@ -75,14 +75,4 @@ Route::post('/submit-evaluation', [UserModuleController::class, 'submitEvaluatio
 
 Route::get('/get-counts', [DashboardController::class, 'getCounts']);
 
-
-
-
-
-
-
-
-
-
-
 require __DIR__ . '/auth.php';
