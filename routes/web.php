@@ -66,6 +66,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::get('/revisionquestions', [UserModuleController::class, 'index'])->name('usermodule.revisionquestions');
+
+//For dynamically populating
 Route::get('/get-chapters/{subjectId}', [UserModuleController::class, 'getChapters'])->name('get-chapters');
 
 // MCQ Self-Evaluation Module Routes

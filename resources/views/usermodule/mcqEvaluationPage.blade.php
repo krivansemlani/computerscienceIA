@@ -2,7 +2,6 @@
     @section('content')
         <div class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-lg" style="margin: 20px; padding: 20px;">
             <h1 class="text-3xl font-semibold mb-6">MCQ Self-Evaluation</h1>
-
             <form method="POST" action="{{ route('usermodule.startEvaluation') }}" class="max-w-md mx-auto">
                 @csrf
                 <div class="mb-6">
@@ -56,18 +55,12 @@
                 }
             });
         }
-
-
         var initialSubjectId = $('#subject').val();
         updateChapters(initialSubjectId);
-
-
         $('#subject').change(function() {
             var subjectId = $(this).val();
             updateChapters(subjectId);
         });
-
-
         $('form').on('input change', function() {
             $('#startEvaluationBtn').prop('disabled', !this.checkValidity());
         });

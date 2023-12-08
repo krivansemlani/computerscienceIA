@@ -13,8 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $user = Auth::user(); // Use the user() method to get the authenticated user
-            $userRole = $user->UserRole; // Note: Using camelCase
+            $user = Auth::user(); 
+            $userRole = $user->UserRole; 
 
             if ($userRole == 'user') {
                 return view('dashboard.dashboard');
@@ -24,7 +24,7 @@ class HomeController extends Controller
                 return redirect()->back();
             }
         } else {
-            return redirect()->route('login'); // Redirect to login if not authenticated
+            return redirect()->route('login'); 
         }
     }
 }

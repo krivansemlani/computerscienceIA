@@ -46,7 +46,6 @@
             </tbody>
         </table>
     </div>
-
     <script>
         function confirmDelete(subjectId) {
             if (confirm('Are you sure you want to delete this subject and all its corresponding chapters and questions?')) {
@@ -55,5 +54,4 @@
             }
         }
     </script>
-    
 @endsection

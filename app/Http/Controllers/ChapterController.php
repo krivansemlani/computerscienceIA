@@ -70,15 +70,9 @@ class ChapterController extends Controller
 
     public function destroy(Chapter $chapter)
     {
-       
         $chapter->mcquestions()->delete();
-
-        
         $chapter->qrqquestions()->delete();
-
-       
         $chapter->delete();
-
         return redirect()->route('chapters.index')->with('success', 'Chapter and associated questions deleted successfully.');
     }
 

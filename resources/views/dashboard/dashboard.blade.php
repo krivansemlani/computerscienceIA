@@ -151,7 +151,6 @@
                     })
                     .catch(error => console.error('Error fetching data:', error));
             }
-
             function updateNumbers(data) {
                 animateNumber(document.getElementById('subChapMcqNumber'), 0, data.subChapMcqCount, 3);
                 animateNumber(document.getElementById('revisionQNumber'), 0, data.revisionQCount, 3);
@@ -171,11 +170,7 @@
                     }
                 }, 10000 / 60);
             }
-
-
             fetchDataAndUpdateNumbers();
-
-
             setInterval(fetchDataAndUpdateNumbers, 10000);
         });
     </script>

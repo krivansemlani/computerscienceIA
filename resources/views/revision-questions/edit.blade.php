@@ -1,5 +1,4 @@
 @extends('layouts.subject-layout')
-
 @section('content')
     <div class="container">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -21,12 +20,9 @@
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
-
             <label for="QImage">Question Image</label>
-
             <div class="form-group" class="scrolling-container"
                 style="max-height: 750px; overflow-y: auto; border: 3px solid #000;">
-
                 <input type="file" class="form-control" id="QImage" name="QImage" accept="image/*"
                     onchange="previewImage('QImage', 'image-preview')" style="padding: 10px 0;">
                 <img id="image-preview" src="{{ asset('storage/' . $revisionQuestion->QImage) }}" alt="Question Image"
@@ -37,7 +33,6 @@
 
             <div class="form-group" class="scrolling-container"
                 style="max-height: 750px; overflow-y: auto; border: 3px solid #000;">
-
                 <input type="file" class="form-control" id="AImage" name="AImage" accept="image/*"
                     onchange="previewImage('AImage', 'aImagePreview')" style="padding: 10px 0;">
                 <img id="aImagePreview" src="{{ asset('storage/' . $revisionQuestion->AImage) }}" alt="Answer Image"
