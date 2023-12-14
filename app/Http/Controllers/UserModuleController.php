@@ -68,7 +68,7 @@ class UserModuleController extends Controller
                 $query->where('subject_id', $selectedSubject)
                     ->where('id', $selectedChapter);
             })
-            ->limit(5)
+            ->limit(20)
             ->get();
         Session::put('selectedQuestions', $selectedQuestions);
         Session::put('selectedSubject', $selectedSubjectModel);

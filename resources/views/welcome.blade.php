@@ -120,10 +120,8 @@
                         }
                     }
     
-                    
                     updateButtonsState();
     
-                    
                     agreeTermsCheckbox.addEventListener('change', updateButtonsState);
                     agreeTermsCheckbox.addEventListener('input', updateButtonsState);
                 });

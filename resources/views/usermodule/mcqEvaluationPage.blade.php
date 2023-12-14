@@ -4,6 +4,7 @@
             <h1 class="text-3xl font-semibold mb-6">MCQ Self-Evaluation</h1>
             <form method="POST" action="{{ route('usermodule.startEvaluation') }}" class="max-w-md mx-auto">
                 @csrf
+                {{-- dropdown for subject --}}
                 <div class="mb-6">
                     <label for="subject" class="block text-gray-700 text-sm font-bold mb-2">Select Subject:</label>
                     <select name="subject_id" id="subject" class="w-full p-3 border border-gray-300 rounded" required>
@@ -13,12 +14,14 @@
                         @endforeach
                     </select>
                 </div>
+                {{-- dynamically updating dropdown for chapter --}}
                 <div class="mb-6">
                     <label for="chapter" class="block text-gray-700 text-sm font-bold mb-2">Select Chapter:</label>
                     <select name="chapter_id" id="chapter" class="w-full p-3 border border-gray-300 rounded" required>
                         <option value="" disabled selected>Select a Chapter</option>
                     </select>
                 </div>
+
                 <div class="mb-6">
                     <div class="mb-4 flex justify-center">
                         <button type="submit" id="startEvaluationBtn" disabled
